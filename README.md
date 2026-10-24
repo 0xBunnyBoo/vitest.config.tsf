@@ -1,1 +1,10 @@
-# vitest.config.tsf
+import { defineConfig, defaultExclude } from 'vitest/config'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  test: {
+    setupFiles: ['./src/app/test/setup.ts'],
+    exclude: [...defaultExclude, '.claude/**'],
+  },
+})
